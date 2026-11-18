@@ -20,3 +20,8 @@ target_compile_options(udpreader PRIVATE -Wall -Wextra -Wpedantic)
 add_executable(udp-fast-reader src/main.cpp)
 target_link_libraries(udp-fast-reader PRIVATE udpreader)
 target_compile_options(udp-fast-reader PRIVATE -Wall -Wextra -Wpedantic)
+
+enable_testing()
+add_executable(udp-tests tests/test_main.cpp)
+target_link_libraries(udp-tests PRIVATE udpreader)
+add_test(NAME udp-tests COMMAND udp-tests)
